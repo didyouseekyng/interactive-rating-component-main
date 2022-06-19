@@ -59,6 +59,7 @@ html {
     @include mobileFirst(990, 1440) {
       padding: 2.28rem 2.12rem;
       max-width: 356px;
+      margin: 0 auto;
     }
 
     @keyframes scale-up {
