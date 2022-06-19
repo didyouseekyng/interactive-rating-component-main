@@ -7,6 +7,7 @@ const span = document.querySelectorAll("span");
 
 rating.forEach((btn, i) => {
   btn.addEventListener("click", ratingClick);
+  btn.addEventListener("keyup", enterClick);
   btn.addEventListener(
     "click",
     function select() {
@@ -15,7 +16,24 @@ rating.forEach((btn, i) => {
     },
     true
   );
+  btn.addEventListener("keyup", function enterSelect(e) {
+    if (e.keyCode === 13) {
+      let currentRating = i + 1;
+      cardSelect.innerText = `You selected ${currentRating} out of 5`;
+    }
+  });
 });
+
+function enterClick(e) {
+  if (e.keyCode === 13) {
+    rating.forEach((btn, i) => {
+      btn.classList.remove("card-rating--active");
+    });
+    if (e.target.classList.contains("card-rating__span")) {
+      e.target.classList.add("card-rating--active");
+    }
+  }
+}
 
 function ratingClick(e) {
   rating.forEach((btn, i) => {
