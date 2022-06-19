@@ -192,6 +192,7 @@ html {
     max-width: 361px;
     font-size: 15.5px;
     line-height: 1.45;
+    margin: 0 auto;
   }
 }
 @-webkit-keyframes slide-up {
