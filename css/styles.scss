@@ -145,6 +145,8 @@ html {
       cursor: pointer;
       background-color: map-get($colors, orange);
       color: map-get($colors, white);
+      outline: 2px dashed #fff;
+      outline-offset: 1.5px;
     }
 
     &--active {
@@ -180,6 +182,8 @@ html {
     &__btn:focus-visible {
       background-color: map-get($colors, white);
       color: map-get($colors, orange);
+      outline: 2px dashed #fff;
+      outline-offset: 1.5px;
     }
   }
 

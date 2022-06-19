@@ -135,6 +135,8 @@ html {
   cursor: pointer;
   background-color: hsl(25deg, 97%, 53%);
   color: hsl(0deg, 0%, 100%);
+  outline: 2px dashed #fff;
+  outline-offset: 1.5px;
 }
 .card-rating--active {
   background-color: hsl(217deg, 12%, 63%);
@@ -167,6 +169,8 @@ html {
 .card-rating__btn:hover, .card-rating__btn:focus-visible {
   background-color: hsl(0deg, 0%, 100%);
   color: hsl(25deg, 97%, 53%);
+  outline: 2px dashed #fff;
+  outline-offset: 1.5px;
 }
 .card-thank {
   background-color: hsl(215deg, 23%, 14%);
