@@ -1,0 +1,261 @@
+$colors: (
+  orange: hsl(25, 97%, 53%),
+  white: hsl(0, 0%, 100%),
+  lightGrey: hsl(217, 12%, 63%),
+  mediumGrey: hsl(216, 12%, 54%),
+  darkBlue: hsl(215, 23%, 14%),
+  v-darkBlue: hsl(216, 12%, 8%),
+  circleGrey: hsl(210, 19%, 18%),
+);
+
+@mixin mobileFirst($mediaOne, $mediaTwo) {
+  @media only screen and (min-width: calc($mediaOne/16)+em) and (max-width: calc($mediaTwo/16)+em) {
+    @content;
+  }
+}
+
+html {
+  font-size: 0.9375rem;
+  font-family: "Overpass", sans-serif;
+  min-height: 100vh;
+  background-color: map-get($colors, v-darkBlue);
+  display: grid;
+  place-items: center;
+}
+
+.attribution {
+  color: map-get($colors, white);
+  margin: 0 auto;
+  text-align: center;
+  padding: 0rem 2rem;
+  line-height: 1.5;
+
+  a {
+    text-decoration: none;
+    font-size: 1.1rem;
+    color: map-get($colors, orange);
+    transition: 0.3s color cubic-bezier(0.3, -0.6, 0.57, 1.59);
+  }
+  a:hover,
+  a:focus-visible {
+    outline: 2px dashed #fff;
+    outline-offset: 1.5px;
+  }
+}
+
+.card--hidden {
+  display: none;
+}
+
+.card {
+  &-rating {
+    background-color: map-get($colors, darkBlue);
+    padding: 1.5rem 1.7rem;
+    border-radius: 30px;
+    margin: 7rem 0.8125rem;
+    max-width: 270px;
+    animation: scale-up 1s ease;
+
+    @include mobileFirst(990, 1440) {
+      padding: 2.28rem 2.12rem;
+      max-width: 356px;
+    }
+
+    @keyframes scale-up {
+      0% {
+        opacity: 0;
+        transform: scale(0.5);
+      }
+
+      100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    &--circle {
+      display: grid;
+      place-items: center;
+      font-size: 0.7rem;
+      padding: 0.6rem;
+      background-color: map-get($colors, circleGrey);
+      color: map-get($colors, orange);
+      border-radius: 50%;
+      width: 0.9rem;
+
+      @include mobileFirst(990, 1440) {
+        width: 1.6rem;
+        font-size: 1.1rem;
+        padding: 0.9rem;
+        margin-bottom: 2.3rem;
+      }
+    }
+
+    &__heading {
+      color: map-get($colors, white);
+      font-size: 1.4125rem;
+      font-weight: 700;
+
+      @include mobileFirst(990, 1440) {
+        font-size: 1.87rem;
+      }
+    }
+
+    &__text {
+      font-size: 0.9rem;
+      color: map-get($colors, mediumGrey);
+      line-height: 1.7;
+      margin-bottom: 25px;
+
+      @include mobileFirst(990, 1440) {
+        font-size: 1rem;
+        line-height: 1.6;
+        margin-top: -8px;
+        margin-bottom: 26px;
+      }
+    }
+
+    &__flex {
+      display: flex;
+      justify-content: space-around;
+      color: map-get($colors, mediumGrey);
+      font-size: 0.7rem;
+    }
+
+    &__span {
+      display: grid;
+      place-items: center;
+      padding: 0.8125rem;
+      background-color: map-get($colors, circleGrey);
+      border-radius: 50%;
+      width: 0.9rem;
+      margin-bottom: 25px;
+      transition: background-color 0.4s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+
+      @include mobileFirst(990, 1440) {
+        width: 1.2rem;
+        padding: 1.2rem;
+        font-size: 0.9rem;
+        margin-bottom: 34px;
+      }
+    }
+
+    &__span:hover,
+    &__span:focus-visible {
+      cursor: pointer;
+      background-color: map-get($colors, orange);
+      color: map-get($colors, white);
+    }
+
+    &--active {
+      background-color: map-get($colors, lightGrey);
+      color: map-get($colors, white);
+    }
+
+    &__btn {
+      background-color: map-get($colors, orange);
+      border: none;
+      cursor: pointer;
+      color: map-get($colors, white);
+      font-size: 0.75rem;
+      font-weight: 400;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 0.8rem;
+      width: 92%;
+      margin-left: 14px;
+      border-radius: 50px;
+      transition: background-color 0.4s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+
+      @include mobileFirst(990, 1440) {
+        width: 96%;
+        padding: 0.922rem;
+        font-size: 1rem;
+        margin: 0;
+        letter-spacing: 2px;
+      }
+    }
+
+    &__btn:hover,
+    &__btn:focus-visible {
+      background-color: map-get($colors, white);
+      color: map-get($colors, orange);
+    }
+  }
+
+  &-thank {
+    background-color: map-get($colors, darkBlue);
+    padding: 1.5rem 1.3rem;
+    border-radius: 30px;
+    margin: 7rem 0.8125rem;
+    text-align: center;
+    font-size: 0.875rem;
+    color: map-get($colors, mediumGrey);
+    line-height: 1.7;
+    max-width: 270px;
+    animation: slide-up 1s ease;
+
+    @include mobileFirst(990, 1440) {
+      padding: 2.28rem 1.7rem;
+      max-width: 361px;
+      font-size: 15.5px;
+      line-height: 1.45;
+    }
+
+    @keyframes slide-up {
+      0% {
+        opacity: 0;
+        transform: translateY(50px);
+      }
+
+      100% {
+        opacity: 1;
+        transform: translateY(0px);
+      }
+    }
+
+    &__img {
+      height: 5rem;
+
+      @include mobileFirst(990, 1440) {
+        margin-top: 10px;
+        height: 7.2rem;
+        margin-bottom: 1.625rem;
+      }
+    }
+
+    &__selection {
+      width: 50%;
+      font-size: 12px;
+      background-color: map-get($colors, circleGrey);
+      color: map-get($colors, orange);
+      padding: 0.2rem 0.8rem;
+      border-radius: 30px;
+      margin-bottom: 0;
+      margin-left: 3.5rem;
+
+      @include mobileFirst(990, 1440) {
+        font-size: 15.5px;
+        margin: 0 auto;
+        width: 47%;
+      }
+    }
+
+    &__heading {
+      color: map-get($colors, white);
+      font-size: 1.5rem;
+      margin-bottom: 0;
+
+      @include mobileFirst(990, 1440) {
+        font-size: 1.85rem;
+        margin-top: 29px;
+      }
+    }
+
+    &__text {
+      @include mobileFirst(990, 1440) {
+        padding-right: 0.8rem;
+      }
+    }
+  }
+}
